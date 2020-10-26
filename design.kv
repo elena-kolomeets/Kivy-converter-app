@@ -1,0 +1,840 @@
+<MainScreen>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    RelativeLayout:
+        GridLayout:
+            cols: 1
+            padding: 15
+            spacing: 15
+            pos_hint: {'x': 0.1}
+            ScrollView:
+                BoxLayout:
+                    orientation: "vertical"
+                    ImageButton:
+                        id: temperature
+                        text: "TEMPERATURE"
+                        size_hint: 0.8, 0.6
+                        on_press: root.show_temp()
+                        # background_color: 0.25, 0.95, 1
+                        source: 't2.jpg'
+                    BoxLayout:
+                        id: layout_temp
+                        orientation: "horizontal"
+                        size_hint: None, None
+                        width: temperature.width
+                        height: 0
+                        TextInput:
+                            id: fahrenheit
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                            hint_text: "°F"
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.fahrenheit(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                        Label:
+                            id: equal_temp
+                            text: "="
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                        TextInput:
+                            id: celcius
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                            hint_text: "°C"
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.celcius(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                    ImageButton:
+                        id: mass
+                        text: "MASS"
+                        size_hint: 0.8, 0.6
+                        on_press: root.show_mass()
+                        # background_color: 0.25, 0.95, 1
+                        source: 'm2.jpg'
+                    BoxLayout:
+                        id: layout_mass1
+                        orientation: "horizontal"
+                        size_hint: None, None
+                        width: temperature.width
+                        height: 0
+                        TextInput:
+                            id: oz
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                            hint_text: "oz"
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.oz(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                        Label:
+                            id: equal_mass1
+                            text: "="
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                        TextInput:
+                            id: gram
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                            hint_text: "g"
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.gram(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                    BoxLayout:
+                        id: layout_mass2
+                        orientation: "horizontal"
+                        size_hint: None, None
+                        width: temperature.width
+                        height: 0
+                        TextInput:
+                            id: ibs
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                            hint_text: "ibs"
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.ibs(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                        Label:
+                            id: equal_mass2
+                            text: "="
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                        TextInput:
+                            id: kgs
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                            hint_text: "kg"
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.kgs(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                    ImageButton:
+                        id: volume
+                        text: "VOLUME"
+                        size_hint: 0.8, 0.6
+                        on_press: root.show_volume()
+                        # background_color: 0.25, 0.95, 1
+                        source: 'v2.jpg'
+                    BoxLayout:
+                        id: layout_volume1
+                        orientation: "horizontal"
+                        size_hint: None, None
+                        width: temperature.width
+                        height: 0
+                        TextInput:
+                            id: floz
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                            hint_text: "fl oz"
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.floz(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                        Label:
+                            id: equal_volume1
+                            text: "="
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                        TextInput:
+                            id: ml
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                            hint_text: "ml"
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.ml(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                    BoxLayout:
+                        id: layout_volume2
+                        orientation: "horizontal"
+                        size_hint: None, None
+                        width: temperature.width
+                        height: 0
+                        TextInput:
+                            id: quart
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                            hint_text: "qt"
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.quart(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                        Label:
+                            id: equal_volume2
+                            text: "="
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                        TextInput:
+                            id: litre2
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.8}
+                            hint_text: "L"
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.litre2(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                    BoxLayout:
+                        id: layout_volume3
+                        orientation: "horizontal"
+                        size_hint: None, None
+                        width: temperature.width
+                        height: 0
+                        TextInput:
+                            id: gallon
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                            hint_text: "gal"
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.gal(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                        Label:
+                            id: equal_volume3
+                            text: "="
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                        TextInput:
+                            id: litre3
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.8}
+                            hint_text: "L"
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.litre3(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                    ImageButton:
+                        id: distance
+                        text: "DISTANCE"
+                        size_hint: 0.8, 0.6
+                        on_press: root.show_dist()
+                        # background_color: 0.25, 0.95, 1
+                        source: 'd2.jpg'
+                    BoxLayout:
+                        id: layout_dist1
+                        orientation: "horizontal"
+                        size_hint: None, None
+                        width: temperature.width
+                        height: 0
+                        TextInput:
+                            id: inch
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                            hint_text: 'in "'
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.inch(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                        Label:
+                            id: equal_dist1
+                            text: "="
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                        TextInput:
+                            id: mm
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.8}
+                            hint_text: "mm"
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.mm(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                    BoxLayout:
+                        id: layout_dist2
+                        orientation: "horizontal"
+                        size_hint: None, None
+                        width: temperature.width
+                        height: 0
+                        TextInput:
+                            id: feet
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                            hint_text: "ft '"
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.feet(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                        Label:
+                            id: equal_dist2
+                            text: "="
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                        TextInput:
+                            id: cm
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.8}
+                            hint_text: 'cm'
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.cm(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                    BoxLayout:
+                        id: layout_dist3
+                        orientation: "horizontal"
+                        size_hint: None, None
+                        width: temperature.width
+                        height: 0
+                        TextInput:
+                            id: yard
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                            hint_text: 'yd'
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.yard(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                        Label:
+                            id: equal_dist3
+                            text: "="
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                        TextInput:
+                            id: metre
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.8}
+                            hint_text: 'm'
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.metre(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                    BoxLayout:
+                        id: layout_dist4
+                        orientation: "horizontal"
+                        size_hint: None, None
+                        width: temperature.width
+                        height: 0
+                        TextInput:
+                            id: mile
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                            hint_text: 'mile'
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.mile(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                        Label:
+                            id: equal_dist4
+                            text: "="
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                        TextInput:
+                            id: km
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.8}
+                            hint_text: 'km'
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.km(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                    ImageButton:
+                        id: area
+                        text: "AREA"
+                        size_hint: 0.8, 0.6
+                        on_press: root.show_area()
+                        # background_color: 0.25, 0.95, 1
+                        source: 'a2.jpg'
+                    BoxLayout:
+                        id: layout_area1
+                        orientation: "horizontal"
+                        size_hint: None, None
+                        width: temperature.width
+                        height: 0
+                        TextInput:
+                            id: sqft
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                            hint_text: 'sq ft'
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.sqft(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                        Label:
+                            id: equal_area1
+                            text: "="
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                        TextInput:
+                            id: m21
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.8}
+                            hint_text: 'm²'
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.m21(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                    BoxLayout:
+                        id: layout_area2
+                        orientation: "horizontal"
+                        size_hint: None, None
+                        width: temperature.width
+                        height: 0
+                        TextInput:
+                            id: sqyd
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                            hint_text: 'sq yd'
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.sqyd(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                        Label:
+                            id: equal_area2
+                            text: "="
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                        TextInput:
+                            id: m22
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.8}
+                            hint_text: "m²"
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.m22(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                    BoxLayout:
+                        id: layout_area3
+                        orientation: "horizontal"
+                        size_hint: None, None
+                        width: temperature.width
+                        height: 0
+                        TextInput:
+                            id: acre
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                            hint_text: 'acre'
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.acre(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                        Label:
+                            id: equal_area3
+                            text: "="
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                        TextInput:
+                            id: ha
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.8}
+                            hint_text: "ha"
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.ha(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                    BoxLayout:
+                        id: layout_area4
+                        orientation: "horizontal"
+                        size_hint: None, None
+                        width: temperature.width
+                        height: 0
+                        TextInput:
+                            id: sqmi
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                            hint_text: 'sq mi'
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.sqmi(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                        Label:
+                            id: equal_area4
+                            text: "="
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.85}
+                        TextInput:
+                            id: km2
+                            size_hint: 0, 0
+                            opacity: 0
+                            pos_hint: {'top': 0.8}
+                            hint_text: "km²"
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.km2(self.text)
+                            write_tab: False
+                            on_focus: root.select(self, len(self.hint_text) + 1)
+                            input_filter: 'float'
+                    ImageButton:
+                        id: imperial
+                        # background_color: 0, 0.5, 0.5
+                        text: "IMPERIAL UNITS"
+                        size_hint: 0.8, 0.6
+                        source: 'i2.jpg'
+                        on_press: root.imperial()
+
+<ImperialScreen>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    RelativeLayout:
+        ScrollView:
+            BoxLayout:
+                orientation: "horizontal"
+                padding: 20
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint: 0.2, 0.8
+                    pos_hint: {'left': 1, 'top': 1.02}
+                    ImageButton:
+                        # text: 'Mass'
+                        # color: 0, 0.4, 0.4, 1
+                        # size_hint: 0.4, 0.3
+                        source: 'm3.jpg'
+                    ImageButton:
+                        # text: 'Volume'
+                        # color: 0, 0.4, 0.4, 1
+                        # size_hint: 0.4, 0.3
+                        source: 'v3.jpg'
+                    ImageButton:
+                        # text: 'Distance'
+                        # color: 0, 0.4, 0.4, 1
+                        # size_hint: 0.4, 0.3
+                        source: 'd3.jpg'
+                    ImageButton:
+                        # text: 'Area'
+                        # color: 0, 0.4, 0.4, 1
+                        # size_hint: 0.4, 0.3
+                        source: 'a3.jpg'
+                    
+                BoxLayout:
+                    orientation: "vertical"
+                    spacing: 15
+                    size_hint: 0.8, 0.8
+                    pos_hint: {'left': 1, 'top': 1}
+                    # Label:
+                    #     text: 'Imperial System Units'
+                    #     color: 0, 0.3, 0.3, 1
+                    #     font_size: 17
+                    BoxLayout:
+                        orientation: "horizontal"
+                        size_hint: 1, 0.7
+                        TextInput:
+                            id: oz
+                            size_hint: 0.6, 0.7
+                            pos_hint: {'top': 0.85}
+                            # hint_text: "oz"
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.oz(self.text)
+                            write_tab: False
+                            on_focus: root.select(self)
+                            input_filter: 'float'
+                        Label:
+                            id: equal_mass
+                            text: "="
+                            size_hint: 0.1, 0.7
+                            color: [0, 0, 0, 1]
+                            pos_hint: {'top': 0.85}
+                        TextInput:
+                            id: ibs
+                            size_hint: 0.6, 0.7
+                            pos_hint: {'top': 0.85}
+                            # hint_text: "ibs"
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.ibs(self.text)
+                            write_tab: False
+                            on_focus: root.select(self)
+                            input_filter: 'float'
+                    BoxLayout:
+                        orientation: "horizontal"
+                        size_hint: 1, 0.2
+                        Label:
+                            text: 'ounce'
+                            size_hint: None, None
+                            size: oz.size
+                            halign: 'center'
+                            color: [0.5, 0.5, 0.5, 1]
+                        Label:
+                            text: ''
+                            size_hint: None, None
+                            size: equal_mass.size
+                        Label:
+                            text: 'pound'
+                            size_hint: None, None
+                            size: ibs.size
+                            halign: 'center'
+                            color: [0.5, 0.5, 0.5, 1]
+                    BoxLayout:
+                        orientation: "horizontal"
+                        size_hint: 1, 0.7
+                        TextInput:
+                            id: floz
+                            size_hint: 0.6, 0.7
+                            pos_hint: {'top': 0.85}
+                            # hint_text: "fl oz"
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.floz(self.text)
+                            write_tab: False
+                            on_focus: root.select(self)
+                            input_filter: 'float'
+                        Label:
+                            id: equal_volume1
+                            text: "="
+                            size_hint: 0.1, 0.7
+                            color: [0, 0, 0, 1]
+                            pos_hint: {'top': 0.85}
+                        TextInput:
+                            id: quart
+                            size_hint: 0.6, 0.7
+                            pos_hint: {'top': 0.85}
+                            # hint_text: "qt"
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.quart(self.text)
+                            write_tab: False
+                            on_focus: root.select(self)
+                            input_filter: 'float'
+                        Label:
+                            id: equal_volume2
+                            text: "="
+                            size_hint: 0.1, 0.7
+                            color: [0, 0, 0, 1]
+                            pos_hint: {'top': 0.85}
+                        TextInput:
+                            id: gallon
+                            size_hint: 0.6, 0.7
+                            pos_hint: {'top': 0.85}
+                            # hint_text: "gal"
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.gallon(self.text)
+                            write_tab: False
+                            on_focus: root.select(self)
+                            input_filter: 'float'
+                    BoxLayout:
+                        orientation: "horizontal"
+                        size_hint: 1, 0.2
+                        Label:
+                            text: 'fluid ounce'
+                            size_hint: None, None
+                            size: floz.size
+                            halign: 'center'
+                            color: [0.5, 0.5, 0.5, 1]
+                        Label:
+                            text: ''
+                            size_hint: None, None
+                            size: equal_volume1.size
+                        Label:
+                            text: 'quart'
+                            size_hint: None, None
+                            size: quart.size
+                            halign: 'center'
+                            color: [0.5, 0.5, 0.5, 1]
+                        Label:
+                            text: ''
+                            size_hint: None, None
+                            size: equal_volume2.size
+                        Label:
+                            text: 'gallon'
+                            size_hint: None, None
+                            size: gallon.size
+                            halign: 'center'
+                            color: [0.5, 0.5, 0.5, 1]
+                    BoxLayout:
+                        orientation: "horizontal"
+                        size_hint: 1, 0.7
+                        TextInput:
+                            id: inch
+                            size_hint: 0.6, 0.7
+                            pos_hint: {'top': 0.85}
+                            # hint_text: 'in "'
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.inch(self.text)
+                            write_tab: False
+                            on_focus: root.select(self)
+                            input_filter: 'float'
+                        Label:
+                            id: equal_dist1
+                            text: "="
+                            size_hint: 0.1, 0.7
+                            color: [0, 0, 0, 1]
+                            pos_hint: {'top': 0.85}
+                        TextInput:
+                            id: feet
+                            size_hint: 0.6, 0.7
+                            pos_hint: {'top': 0.85}
+                            # hint_text: "ft '"
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.feet(self.text)
+                            write_tab: False
+                            on_focus: root.select(self)
+                            input_filter: 'float'
+                        Label:
+                            id: equal_dist2
+                            text: "="
+                            size_hint: 0.1, 0.7
+                            color: [0, 0, 0, 1]
+                            pos_hint: {'top': 0.85}
+                        TextInput:
+                            id: yard
+                            size_hint: 0.6, 0.7
+                            pos_hint: {'top': 0.85}
+                            # hint_text: 'yd'
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.yard(self.text)
+                            write_tab: False
+                            on_focus: root.select(self)
+                            input_filter: 'float'
+                    BoxLayout:
+                        orientation: "horizontal"
+                        size_hint: 1, 0.2
+                        Label:
+                            text: 'inch'
+                            size_hint: None, None
+                            size: feet.size
+                            halign: 'center'
+                            color: [0.5, 0.5, 0.5, 1]
+                        Label:
+                            text: ''
+                            size_hint: None, None
+                            size: equal_dist1.size
+                        Label:
+                            text: "foot"
+                            size_hint: None, None
+                            size: feet.size
+                            halign: 'center'
+                            color: [0.5, 0.5, 0.5, 1]
+                        Label:
+                            text: ''
+                            size_hint: None, None
+                            size: equal_dist2.size
+                        Label:
+                            text: 'yard'
+                            size_hint: None, None
+                            size: yard.size
+                            halign: 'center'
+                            color: [0.5, 0.5, 0.5, 1]
+                    BoxLayout:
+                        orientation: "horizontal"
+                        size_hint: 1, 0.7
+                        TextInput:
+                            id: sqft
+                            size_hint: 0.6, 0.7
+                            pos_hint: {'top': 0.85}
+                            # hint_text: 'sq ft'
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.sqft(self.text)
+                            write_tab: False
+                            on_focus: root.select(self)
+                            input_filter: 'float'
+                        Label:
+                            id: equal_area1
+                            text: "="
+                            size_hint: 0.1, 0.7
+                            color: [0, 0, 0, 1]
+                            pos_hint: {'top': 0.85}
+                        TextInput:
+                            id: sqyd
+                            size_hint: 0.6, 0.7
+                            pos_hint: {'top': 0.85}
+                            # hint_text: 'sq yd'
+                            padding: [6, self.height / 2.0 - (self.line_height / 2.0), 0, 0]
+                            on_text: root.sqyd(self.text)
+                            write_tab: False
+                            on_focus: root.select(self)
+                            input_filter: 'float'
+                    BoxLayout:
+                        orientation: "horizontal"
+                        size_hint: 1, 0.2
+                        Label:
+                            text: 'foot²'
+                            size_hint: None, None
+                            size: sqft.size
+                            halign: 'center'
+                            color: [0.5, 0.5, 0.5, 1]
+                        Label:
+                            text: ''
+                            size_hint: None, None
+                            size: equal_area1.size
+                        Label:
+                            text: 'yard²'
+                            size_hint: None, None
+                            size: sqyd.size
+                            halign: 'center'
+                            color: [0.5, 0.5, 0.5, 1]
+        RelativeLayout:
+            size_hint: 1, 0.2
+            Button:
+                text: 'Back'
+                size_hint: 0.3, 0.4
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                on_press: root.back()
+                background_color: [0, 0.7, 0.7, 1]
+
+
+<RootWidget>:
+    MainScreen:
+        name: "main_screen"
+    ImperialScreen:
+        name: "imperial_screen"
