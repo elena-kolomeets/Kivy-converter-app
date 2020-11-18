@@ -1,8 +1,7 @@
 ## Canadian Converter app
-(kivy)
 
-A mobile app converting metric units to imperial units and vice versa
-for everyday use. The idea came to me as I am moving to Canada beginning of 2021!
+A mobile app built with Python and Kivy for converting metric units to imperial units and vice versa
+for everyday use. 
 
 Main screen has buttons which on click 'open' the area with text inputs. 
 Clicking another button 'closes' the area and 'opens' a new one.
