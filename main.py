@@ -1,6 +1,6 @@
 from kivy.app import App
 from kivy.lang import Builder
-from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.screenmanager import ScreenManager, Screen, NoTransition
 from kivy.uix.button import ButtonBehavior
 from kivy.uix.image import Image
 from kivy.clock import Clock
@@ -12,6 +12,8 @@ Builder.load_file('design.kv')
 Window.softinput_mode = "below_target"
 
 flag = ContextVar('flag', default=False)
+
+# show/hide the widgets associated with the button
 
 
 def show(widget1, widget2, widget3, box, button):
@@ -46,7 +48,8 @@ class ImageButton(ButtonBehavior, Image):
 
 
 class MainScreen(Screen):
-    # conversion functions
+    # when user clicks on TextInput, select its text
+    # otherwise add unit names after numbers
 
     def select(self, instance, n):
         if instance.focus == True:
@@ -57,6 +60,7 @@ class MainScreen(Screen):
             if instance.text != '' and instance.text != '-' and instance.text != '.' and instance.text != '-.':
                 instance.text += ' ' + instance.hint_text
 
+    # conversion functions
     # temperature
     def fahrenheit(self, f):
         if self.ids.fahrenheit.focus == True:
@@ -240,7 +244,7 @@ class MainScreen(Screen):
                 self.ids.sqmi.text = '{:.2f}'.format(float(km2) / 2.59) + ' sq mi'
 
 
-    # widget show/hide functions
+    # widgets show/hide functions
 
     def show_temp(self):
         if flag.get() == True:
@@ -480,7 +484,7 @@ class ImperialScreen(Screen):
     
 
     def back(self):
-        self.manager.transition.direction = "right"
+        # self.manager.transition.direction = "right"
         self.manager.current = "main_screen"
         
         self.ids.ibs.text = ''
@@ -495,17 +499,23 @@ class ImperialScreen(Screen):
         self.ids.sqft.text = ''
 
 
-class RootWidget(ScreenManager):
-    pass
+# class RootWidget(ScreenManager):
+#     pass
+
+sm = ScreenManager(transition=NoTransition())
+sm.add_widget(MainScreen(name='main_screen'))
+Clock.schedule_once(lambda dt: sm.add_widget(ImperialScreen(name='imperial_screen')), 2)
 
 
 class MainApp(App):
     def build(self):
-        return RootWidget()
+        # return RootWidget()
+        return sm
 
 
 if __name__ == "__main__":
     MainApp().run()
+
 
 # trigger event by text change in TextInput:
 # in .kv file among TextInput properties add:

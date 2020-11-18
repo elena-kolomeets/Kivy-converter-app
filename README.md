@@ -36,4 +36,6 @@ The APK file available (for Android).
     * inch vs foot vs yard
     * square feet vs square yards
 
-<img src="kivy_converter.gif" width="300"/>
+<img src="images/IMG-20201110-WA0004.jpg" width="300"/>
+
+<img src="images/kivy_converter.gif" width="300"/>
