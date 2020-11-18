@@ -504,7 +504,7 @@ class ImperialScreen(Screen):
 
 sm = ScreenManager(transition=NoTransition())
 sm.add_widget(MainScreen(name='main_screen'))
-Clock.schedule_once(lambda dt: sm.add_widget(ImperialScreen(name='imperial_screen')), 2)
+Clock.schedule_once(lambda dt: sm.add_widget(ImperialScreen(name='imperial_screen')), 1)
 
 
 class MainApp(App):
